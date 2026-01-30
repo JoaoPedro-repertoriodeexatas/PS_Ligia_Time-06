@@ -22,8 +22,8 @@ Siga os passos abaixo para reproduzir o ambiente de desenvolvimento e executar o
 
 ### 2. Clonar o Repositório
 ```bash
-git clone [https://github.com/](https://github.com/)[SEU-USUARIO]/[NOME-DO-REPO].git
-cd [NOME-DO-REPO]
+git clone https://github.com/JoaoPedro-repertoriodeexatas/PS_Ligia_Time-06.git
+cd PS_Ligia_Time-06
 
 # Criação do ambiente virtual (opcional mas recomendado)
 python -m venv venv
@@ -33,3 +33,29 @@ source venv/bin/activate  # No Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 jupyter notebook notebooks/1_EDA_Analise_Exploratoria.ipynb
+```
+🧠 Metodologia e Modelagem
+Adotamos uma abordagem comparativa para garantir a robustez da solução:
+
+Baseline (Linha de Base): Utilizamos um algoritmo Random Forest para estabelecer uma métrica base de desempenho.
+
+Modelo Avançado: Implementamos o XGBoost (Gradient Boosting), otimizando hiperparâmetros para superar o baseline.
+
+Justificativa da Métrica
+Dado o contexto crítico de saúde, a Acurácia isolada não é suficiente. Priorizamos a análise do Recall (Sensibilidade) e F1-Score, especialmente para as classes críticas (Laranja e Vermelho).
+
+
+Justificativa: Um Falso Negativo (classificar um paciente grave como leve) apresenta risco de vida, sendo o erro que mais buscamos minimizar. 
+
+Estrutura do Repositório 
+
+data/: Contém os datasets (observando as regras da LGPD, dados anonimizados).
+
+notebooks/: Análises exploratórias e pipelines de treinamento.
+
+src/: Código fonte modularizado (pré-processamento e funções de inferência).
+
+
+models/: Pesos dos modelos treinados (.json/.pkl) prontos para uso.
+
+
